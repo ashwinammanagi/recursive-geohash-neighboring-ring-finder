@@ -49,3 +49,5 @@ print(ring)
 
 ## Contributing
 If you find any issues, have suggestions for improvements, or want to contribute to this project, feel free to create a pull request or open an issue on the GitHub repository.
+
+Check out the full post [here](https://iash.dev/posts/recursive-geohash-neighboring-ring-finder/).
