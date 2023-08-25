@@ -1,0 +1,26 @@
+<!doctype html><title>geohash example</title><meta charset="utf-8">
+<script type="module">
+    import Geohash from 'https://cdn.jsdelivr.net/npm/latlon-geohash@2.0.0';
+
+    function findNeighboringRingGeohashes(geohash, n, uniqueGeohashes = new Set()) {
+        uniqueGeohashes.add(geohash);
+
+        if (n === 0) {
+            return; // End recursion when n is 0
+        }
+
+        const neighbors = Geohash.neighbours(geohash);
+        for (const neighbor in neighbors) {
+            findNeighboringRingGeohashes(neighbors[neighbor], n - 1, uniqueGeohashes); // Recursive call for each neighbor
+        }
+
+        return Array.from(uniqueGeohashes);
+    }
+
+    const geohash = 'dpz26';
+    const n = 3; // Replace this with the desired number of times to find neighboring rings
+    const uniqueGeohashes = findNeighboringRingGeohashes(geohash, n);
+    console.log(uniqueGeohashes);
+</script>
+
+</html>
